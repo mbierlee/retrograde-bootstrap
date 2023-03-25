@@ -23,6 +23,8 @@ import retrograde.core.storage : StorageSystem, GenericStorageSystem;
 
 import retrograde.rendering.generic : GenericRenderSystem;
 
+import retrograde.ai.generative.stabilityai : StabilityAiApi, VibeStabilityAiApi;
+
 import poodinis : Inject, DependencyContainer, ResolveOption, initializedBy, existingInstance;
 import poodinis.valueinjector.mirage : loadConfig, parseIniConfig;
 
@@ -82,6 +84,7 @@ GraphicsApiType:
     dependencies.register!(GraphicsApi, GraphicsApiType);
     dependencies.register!(Platform, PlatformType);
     dependencies.register!(StorageSystem, GenericStorageSystem);
+    dependencies.register!(StabilityAiApi, VibeStabilityAiApi);
 
     const configPath = "./engine.ini";
     if (exists(configPath)) {
@@ -156,18 +159,6 @@ class BootstrapGame : Game {
     }
 
     public void terminate() {
-    }
-}
-
-version (Have_vibe_d_http) {
-    import retrograde.ai.generative.stabilityai : StabilityAiApi, VibeStabilityAiApi;
-    import poodinis : Registration;
-
-    /**
-     * Registers the VibeStabilityAiApi as the StabilityAiApi.
-     */
-    Registration registerStabilityAiApi(shared(DependencyContainer) dependencies) {
-        return dependencies.register!(StabilityAiApi, VibeStabilityAiApi);
     }
 }
 
