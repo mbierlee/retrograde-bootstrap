@@ -159,6 +159,18 @@ class BootstrapGame : Game {
     }
 }
 
+version (Have_vibe_d_http) {
+    import retrograde.ai.generative.stabilityai : StabilityAiApi, VibeStabilityAiApi;
+    import poodinis : Registration;
+
+    /**
+     * Registers the VibeStabilityAiApi as the StabilityAiApi.
+     */
+    Registration registerStabilityAiApi(shared(DependencyContainer) dependencies) {
+        return dependencies.register!(StabilityAiApi, VibeStabilityAiApi);
+    }
+}
+
 version (unittest) {
     class TestGame : Game {
         public bool isInitialized;
