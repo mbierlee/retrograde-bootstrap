@@ -23,7 +23,7 @@ import retrograde.core.storage : StorageSystem, GenericStorageSystem;
 
 import retrograde.rendering.generic : GenericRenderSystem;
 
-import retrograde.ai.generative.stabilityai : StabilityAiApi, VibeStabilityAiApi;
+import retrograde.ai.generative.stabilityai : StabilityAiApi, StabilityAiApiImpl;
 
 import poodinis : Inject, DependencyContainer, ResolveOption, initializedBy, existingInstance;
 import poodinis.valueinjector.mirage : loadConfig, parseIniConfig;
@@ -84,7 +84,7 @@ GraphicsApiType:
     dependencies.register!(GraphicsApi, GraphicsApiType);
     dependencies.register!(Platform, PlatformType);
     dependencies.register!(StorageSystem, GenericStorageSystem);
-    dependencies.register!(StabilityAiApi, VibeStabilityAiApi);
+    dependencies.register!(StabilityAiApi, StabilityAiApiImpl);
 
     const configPath = "./engine.ini";
     if (exists(configPath)) {
