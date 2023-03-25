@@ -1,0 +1,43 @@
+{
+  "name": "retrograde-bootstrap",
+  "description": "A quick way to setup Retrograde Engine projects",
+  "license": "MIT",
+  "authors": ["Mike Bierlee"],
+  "copyright": "Copyright © 2023, Mike Bierlee",
+  "targetPath": "bin",
+  "targetType": "library",
+  "dependencies": {
+    "retrograde": { "path": "../retrograde" }
+  },
+  "subPackages": [
+    {
+      "name": "minimal"
+    },
+    {
+      "name": "glfw-opengl",
+      "dependencies": {
+        "retrograde": { "path": "../retrograde" },
+        "glfw-d": "~>1.1.0",
+        "bindbc-opengl": "~>1.0.5",
+        "preprocessor": "~>1.2.0"
+      },
+      "configurations": [
+        {
+          "name": "opengl46",
+          "versions": ["GL_46"]
+        }
+      ]
+    },
+    {
+      "name": "stability-ai",
+      "targetType": "none",
+      "dependencies": {
+        "vibe-d:http": "~>0.9.6",
+        "vibe-d:tls": "~>0.9.6"
+      },
+      "subConfigurations": {
+        "vibe-d:tls": "openssl-1.1"
+      }
+    }
+  ]
+}
