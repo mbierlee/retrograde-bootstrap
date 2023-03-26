@@ -9,7 +9,7 @@
  *  The full terms of the license can be found in the LICENSE.txt file.
  */
 
-module source.retrograde.bootstrap;
+module retrograde.bootstrap;
 
 import retrograde.core.runtime : EngineRuntime, StandardEngineRuntime;
 import retrograde.core.game : Game;
