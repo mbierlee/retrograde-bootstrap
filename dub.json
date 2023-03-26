@@ -1,6 +1,6 @@
 {
   "name": "retrograde-bootstrap",
-  "description": "A quick way to setup Retrograde Engine projects",
+  "description": "A quick way to set up Retrograde Engine projects",
   "license": "MIT",
   "authors": ["Mike Bierlee"],
   "copyright": "Copyright © 2023, Mike Bierlee",
